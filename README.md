@@ -1,2 +1,2 @@
-# series_time_calculator
+# Series Time Calculator
 Calculate your total time spent watching TV shows.
