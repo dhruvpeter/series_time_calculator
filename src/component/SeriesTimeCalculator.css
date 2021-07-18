@@ -6,7 +6,7 @@ body {
 h1 {
   font-size: 1.9em;
 }
-.input-container {
+.container {
   width: 350px;
   margin: auto;
   margin-top: 50px;
@@ -52,4 +52,8 @@ ul li i {
 }
 li:hover {
   box-shadow: 0 3px 6px #1a3f4d8a;
+}
+
+.time{
+  margin-bottom: 20px;
 }
