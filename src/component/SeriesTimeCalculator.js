@@ -7,7 +7,6 @@ export default function SeriesTimeCalculator() {
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
   const [watchTime, setWatchTime] = useState({ days: 0, hours: 0 });
-
   const handleChange = (event) => {
     setInput(event.target.value);
   };
@@ -113,7 +112,10 @@ export default function SeriesTimeCalculator() {
       <ul>
         {results.map((data, index) => (
           <li key={index}>
-            {data.title}
+            <img src={data.image.url} />
+            <div className="title">
+              <h3>{data.title}</h3>
+            </div>
 
             <i className="fas fa-times" onClick={() => deleteItem(index)}></i>
           </li>

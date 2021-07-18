@@ -7,7 +7,7 @@ h1 {
   font-size: 1.9em;
 }
 .container {
-  width: 350px;
+  width: 500px;
   margin: auto;
   margin-top: 50px;
   text-align: center;
@@ -29,10 +29,12 @@ h1 {
   padding: 10px;
   box-shadow: 0 3px 6px #102428a1;
   outline: none;
+  width: 350px;
 }
 ul {
-  text-align: left;
   padding: 0;
+  width: 350px;
+  margin-left: 75px;
 }
 
 ul li {
@@ -41,14 +43,18 @@ ul li {
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 5px;
-  display: flex;
+  /* display: flex; */
   overflow-wrap: anywhere;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  text-align: center;
 }
 ul li i {
-  text-align: right;
-  flex: 1;
+  /* text-align: right; */
+  /* flex: 1; */
   cursor: pointer;
+  position: relative;
+  left: 155px;
+  bottom: 470px;
 }
 li:hover {
   box-shadow: 0 3px 6px #1a3f4d8a;
@@ -56,4 +62,11 @@ li:hover {
 
 .time{
   margin-bottom: 20px;
+}
+
+img{
+  width: 280px;
+  max-height: 380px;
+  margin-top: 20px;
+  box-shadow: 0 3px 6px #1a3f4d8a;
 }
