@@ -6,6 +6,7 @@ import axios from "axios";
 export default function SeriesTimeCalculator() {
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
+  const [watchTime, setWatchTime] = useState({ days: 0, hours: 0});
 
   const handleChange = (event) => {
       setInput(event.target.value);
@@ -29,10 +30,25 @@ export default function SeriesTimeCalculator() {
 
       try {
         const response = await axios.request(options);
-        const result = response.data.results.filter((result) => result.titleType === 'tvSeries' && result.title.toLowerCase() === title.toLowerCase());
+        const [result] = response.data.results.filter((result) => result.titleType === 'tvSeries' && result.title.toLowerCase() === title.toLowerCase());
         console.log(result);
 
-        setResults([...results, result[0]])
+        setResults([...results, result]);
+        
+        console.log(result.runningTimeInMinutes)
+
+        const resultHours = Math.floor((result.runningTimeInMinutes * result.numberOfEpisodes) / 60);
+        const resultDays = Math.floor(resultHours / 24);
+        const newWatchTimeHours = watchTime.hours + resultHours % 24;
+
+        console.log(resultHours, resultDays, newWatchTimeHours);
+
+        if(newWatchTimeHours >= 24) {
+          setWatchTime({days: watchTime.days + resultDays + 1, hours: newWatchTimeHours%24});
+        } else {
+          setWatchTime({days:  watchTime.days + resultDays, hours: newWatchTimeHours});
+        }
+        setInput("");
       } catch(err) {
         console.log(err.message);
       }
@@ -42,6 +58,17 @@ export default function SeriesTimeCalculator() {
   };
 
   const deleteItem = (key) => {
+    const deletedEntry = results[key];
+    const deletedEntryHours = Math.floor((deletedEntry.runningTimeInMinutes * deletedEntry.numberOfEpisodes) / 60);
+    const deletedEntryDays = Math.floor(deletedEntryHours / 24);
+    const newWatchTimeHours = watchTime.hours - deletedEntryHours % 24;
+
+    if(newWatchTimeHours < 0) {
+      setWatchTime({days: watchTime.days - deletedEntryDays - 1, hours: newWatchTimeHours + 24});
+    }
+    else {
+      setWatchTime({days: watchTime.days - deletedEntryDays, hours: newWatchTimeHours});
+    }
     setResults(results.filter((data, index) => index !== key));
   }
 
