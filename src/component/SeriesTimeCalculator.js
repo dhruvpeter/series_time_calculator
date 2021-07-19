@@ -62,7 +62,7 @@ export default function SeriesTimeCalculator() {
           localStorage.setItem('results', JSON.stringify([...results, result]));
 
         } else {
-          alert('This series in not available');
+          alert("This series in not available");
         }
       } catch (err) {
         console.log(err.message);
@@ -89,7 +89,7 @@ export default function SeriesTimeCalculator() {
       newWatchTime.hours += 24;
     }
 
-    const newResults = results.filter((data, index) => index !== key)
+    const newResults = results.filter((data, index) => index !== key);
     setResults(newResults);
     setWatchTime(newWatchTime);
 
@@ -100,13 +100,12 @@ export default function SeriesTimeCalculator() {
 
   return (
     <div className="container">
-      <div className="input-section">
+      <div className="input-container">
         <h1>Series Time Calculator</h1>
         <div className="time">
-          Watched time: {watchTime.days} Days {watchTime.hours} Hours
+          {watchTime.days} Days {watchTime.hours} Hours
         </div>
         <form onSubmit={storeItems}>
-          <div></div>
           <input
             type="text"
             name="input"
@@ -117,18 +116,23 @@ export default function SeriesTimeCalculator() {
         </form>
       </div>
 
-      <ul>
+      <div className="tiles">
         {results.map((data, index) => (
-          <li key={index}>
-            <img src={data.image.url} alt="series-logo"/>
+          <div key={index} className="card">
+            <div
+              className="fas fa-times delete"
+              onClick={() => deleteItem(index)}
+            ></div>
+            <div className="image">
+              <img src={data.image.url} />
+            </div>
+
             <div className="title">
               <h3>{data.title}</h3>
             </div>
-
-            <i className="fas fa-times" onClick={() => deleteItem(index)}></i>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
