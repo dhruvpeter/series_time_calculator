@@ -9,7 +9,6 @@ body {
 
 h1 {
   color: white;
-  opacity: 80%;
 }
 
 .input-container {
@@ -20,7 +19,6 @@ h1 {
 
 .time {
   color: white;
-  opacity: 80%;
   font-size: -webkit-xxx-large;
   margin-bottom: 30px;
 }
@@ -40,6 +38,7 @@ input {
   margin-left: 170px;
   margin-top: 7px;
   margin-bottom: 5px;
+  color: darkred;
 }
 
 .card {
@@ -67,4 +66,7 @@ img {
   margin-top: 30px;
   display: flex;
   justify-content: center;
+}
+.title {
+  color: #E4ECEE;
 }

@@ -124,7 +124,7 @@ export default function SeriesTimeCalculator() {
               onClick={() => deleteItem(index)}
             ></div>
             <div className="image">
-              <img src={data.image.url} />
+              <img src={data.image.url} alt="Tv Series"/>
             </div>
 
             <div className="title">
