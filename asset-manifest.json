@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/series_time_calculator/static/css/main.034513ba.chunk.css",
-    "main.js": "/series_time_calculator/static/js/main.79ca811e.chunk.js",
-    "main.js.map": "/series_time_calculator/static/js/main.79ca811e.chunk.js.map",
+    "main.js": "/series_time_calculator/static/js/main.d0bbf9af.chunk.js",
+    "main.js.map": "/series_time_calculator/static/js/main.d0bbf9af.chunk.js.map",
     "runtime-main.js": "/series_time_calculator/static/js/runtime-main.95f8a31d.js",
     "runtime-main.js.map": "/series_time_calculator/static/js/runtime-main.95f8a31d.js.map",
     "static/js/2.fce82ecd.chunk.js": "/series_time_calculator/static/js/2.fce82ecd.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.95f8a31d.js",
     "static/js/2.fce82ecd.chunk.js",
     "static/css/main.034513ba.chunk.css",
-    "static/js/main.79ca811e.chunk.js"
+    "static/js/main.d0bbf9af.chunk.js"
   ]
 }
