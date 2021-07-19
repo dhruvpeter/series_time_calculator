@@ -38,41 +38,32 @@ export default function SeriesTimeCalculator() {
         );
 
         if(result) {
-          console.log(result);
-
           setResults([...results, result]);
-  
-          console.log(result.runningTimeInMinutes);
   
           const resultHours = Math.floor(
             (result.runningTimeInMinutes * result.numberOfEpisodes) / 60
           );
           const resultDays = Math.floor(resultHours / 24);
           const newWatchTimeHours = watchTime.hours + (resultHours % 24);
-  
-          console.log(resultHours, resultDays, newWatchTimeHours);
-          var newWatchTime = {};
-  
-          if (newWatchTimeHours >= 24) {
-            newWatchTime = {
-              days: watchTime.days + resultDays + 1,
-              hours: newWatchTimeHours % 24,
-            }
-            // setWatchTime();
-          } else {
-            newWatchTime = {
-              days: watchTime.days + resultDays,
-              hours: newWatchTimeHours,
-            }
+
+          var newWatchTime = {
+            days: watchTime.days + resultDays,
+            hours: newWatchTimeHours
+          };  
+          if(newWatchTimeHours >= 24) {
+            newWatchTime.days += 1;
+            newWatchTime.hours %= 24;
           }
+
           setWatchTime(newWatchTime);
           setInput("");
+
           localStorage.setItem('watchTime', JSON.stringify(newWatchTime));
           localStorage.setItem('results', JSON.stringify([...results, result]));
+
         } else {
           alert('This series in not available');
         }
-
       } catch (err) {
         console.log(err.message);
       }
@@ -88,24 +79,23 @@ export default function SeriesTimeCalculator() {
     const deletedEntryDays = Math.floor(deletedEntryHours / 24);
     const newWatchTimeHours = watchTime.hours - (deletedEntryHours % 24);
 
-    var newWatchTime = {};
-    if (newWatchTimeHours < 0) {
-      newWatchTime = {
-        days: watchTime.days - deletedEntryDays - 1,
-        hours: newWatchTimeHours + 24,
-      }
-    } else {
-      newWatchTime = {
-        days: watchTime.days - deletedEntryDays,
-        hours: newWatchTimeHours,
-      }
+    var newWatchTime = {
+      days: watchTime.days - deletedEntryDays,
+      hours: newWatchTimeHours,
+    };
+
+    if(newWatchTimeHours < 0) {
+      newWatchTime.days -= 1;
+      newWatchTime.hours += 24;
     }
 
     const newResults = results.filter((data, index) => index !== key)
     setResults(newResults);
     setWatchTime(newWatchTime);
+
     localStorage.setItem('watchTime', JSON.stringify(newWatchTime));
     localStorage.setItem('results', JSON.stringify(newResults));
+
   };
 
   return (
