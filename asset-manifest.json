@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/series_time_calculator/static/css/main.034513ba.chunk.css",
+    "main.js": "/series_time_calculator/static/js/main.79ca811e.chunk.js",
+    "main.js.map": "/series_time_calculator/static/js/main.79ca811e.chunk.js.map",
+    "runtime-main.js": "/series_time_calculator/static/js/runtime-main.95f8a31d.js",
+    "runtime-main.js.map": "/series_time_calculator/static/js/runtime-main.95f8a31d.js.map",
+    "static/js/2.fce82ecd.chunk.js": "/series_time_calculator/static/js/2.fce82ecd.chunk.js",
+    "static/js/2.fce82ecd.chunk.js.map": "/series_time_calculator/static/js/2.fce82ecd.chunk.js.map",
+    "static/js/3.3e346f85.chunk.js": "/series_time_calculator/static/js/3.3e346f85.chunk.js",
+    "static/js/3.3e346f85.chunk.js.map": "/series_time_calculator/static/js/3.3e346f85.chunk.js.map",
+    "index.html": "/series_time_calculator/index.html",
+    "static/css/main.034513ba.chunk.css.map": "/series_time_calculator/static/css/main.034513ba.chunk.css.map",
+    "static/js/2.fce82ecd.chunk.js.LICENSE.txt": "/series_time_calculator/static/js/2.fce82ecd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.95f8a31d.js",
+    "static/js/2.fce82ecd.chunk.js",
+    "static/css/main.034513ba.chunk.css",
+    "static/js/main.79ca811e.chunk.js"
+  ]
+}
