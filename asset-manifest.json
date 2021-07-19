@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/series_time_calculator/static/css/main.bccff62b.chunk.css",
+    "main.css": "/series_time_calculator/static/css/main.04136424.chunk.css",
     "main.js": "/series_time_calculator/static/js/main.b6c5ce28.chunk.js",
     "main.js.map": "/series_time_calculator/static/js/main.b6c5ce28.chunk.js.map",
     "runtime-main.js": "/series_time_calculator/static/js/runtime-main.95f8a31d.js",
@@ -10,13 +10,13 @@
     "static/js/3.3e346f85.chunk.js": "/series_time_calculator/static/js/3.3e346f85.chunk.js",
     "static/js/3.3e346f85.chunk.js.map": "/series_time_calculator/static/js/3.3e346f85.chunk.js.map",
     "index.html": "/series_time_calculator/index.html",
-    "static/css/main.bccff62b.chunk.css.map": "/series_time_calculator/static/css/main.bccff62b.chunk.css.map",
+    "static/css/main.04136424.chunk.css.map": "/series_time_calculator/static/css/main.04136424.chunk.css.map",
     "static/js/2.be501fc7.chunk.js.LICENSE.txt": "/series_time_calculator/static/js/2.be501fc7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.95f8a31d.js",
     "static/js/2.be501fc7.chunk.js",
-    "static/css/main.bccff62b.chunk.css",
+    "static/css/main.04136424.chunk.css",
     "static/js/main.b6c5ce28.chunk.js"
   ]
 }
