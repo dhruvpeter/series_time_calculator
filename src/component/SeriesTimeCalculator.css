@@ -66,6 +66,8 @@ img {
   margin-top: 30px;
   display: flex;
   justify-content: center;
+  flex-flow: row wrap;
+  margin-bottom: 30px;
 }
 .title {
   color: #E4ECEE;
