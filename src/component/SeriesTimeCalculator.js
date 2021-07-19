@@ -1,21 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import axios from "axios";
 import "./SeriesTimeCalculator.css";
 
-import axios from "axios";
-
 export default function SeriesTimeCalculator() {
+
   const [input, setInput] = useState("");
-  const [results, setResults] = useState(
-    JSON.parse(localStorage.getItem("results")) || []
-  );
-  const [watchTime, setWatchTime] = useState(
-    JSON.parse(localStorage.getItem("watchTime")) || { days: 0, hours: 0 }
-  );
-
-  useEffect(() => {
-    console.log(localStorage.getItem("watchTime"));
-  });
-
+  const [results, setResults] = useState(JSON.parse(localStorage.getItem('results')) || []);
+  const [watchTime, setWatchTime] = useState(JSON.parse(localStorage.getItem('watchTime')) || { days: 0, hours: 0 });
+  
   const handleChange = (event) => {
     setInput(event.target.value);
   };
