@@ -5,11 +5,15 @@ import axios from "axios";
 
 export default function SeriesTimeCalculator() {
   const [input, setInput] = useState("");
-  const [results, setResults] = useState(JSON.parse(localStorage.getItem('results')) || []);
-  const [watchTime, setWatchTime] = useState(JSON.parse(localStorage.getItem('watchTime')) || { days: 0, hours: 0 });
-  
+  const [results, setResults] = useState(
+    JSON.parse(localStorage.getItem("results")) || []
+  );
+  const [watchTime, setWatchTime] = useState(
+    JSON.parse(localStorage.getItem("watchTime")) || { days: 0, hours: 0 }
+  );
+
   useEffect(() => {
-    console.log(localStorage.getItem('watchTime'));
+    console.log(localStorage.getItem("watchTime"));
   });
 
   const handleChange = (event) => {
@@ -41,42 +45,41 @@ export default function SeriesTimeCalculator() {
             result.title.toLowerCase() === title.toLowerCase()
         );
 
-        if(result) {
+        if (result) {
           console.log(result);
 
           setResults([...results, result]);
-  
+
           console.log(result.runningTimeInMinutes);
-  
+
           const resultHours = Math.floor(
             (result.runningTimeInMinutes * result.numberOfEpisodes) / 60
           );
           const resultDays = Math.floor(resultHours / 24);
           const newWatchTimeHours = watchTime.hours + (resultHours % 24);
-  
+
           console.log(resultHours, resultDays, newWatchTimeHours);
           var newWatchTime = {};
-  
+
           if (newWatchTimeHours >= 24) {
             newWatchTime = {
               days: watchTime.days + resultDays + 1,
               hours: newWatchTimeHours % 24,
-            }
+            };
             // setWatchTime();
           } else {
             newWatchTime = {
               days: watchTime.days + resultDays,
               hours: newWatchTimeHours,
-            }
+            };
           }
           setWatchTime(newWatchTime);
           setInput("");
-          localStorage.setItem('watchTime', JSON.stringify(newWatchTime));
-          localStorage.setItem('results', JSON.stringify([...results, result]));
+          localStorage.setItem("watchTime", JSON.stringify(newWatchTime));
+          localStorage.setItem("results", JSON.stringify([...results, result]));
         } else {
-          alert('This series in not available');
+          alert("This series in not available");
         }
-
       } catch (err) {
         console.log(err.message);
       }
@@ -97,30 +100,29 @@ export default function SeriesTimeCalculator() {
       newWatchTime = {
         days: watchTime.days - deletedEntryDays - 1,
         hours: newWatchTimeHours + 24,
-      }
+      };
     } else {
       newWatchTime = {
         days: watchTime.days - deletedEntryDays,
         hours: newWatchTimeHours,
-      }
+      };
     }
 
-    const newResults = results.filter((data, index) => index !== key)
+    const newResults = results.filter((data, index) => index !== key);
     setResults(newResults);
     setWatchTime(newWatchTime);
-    localStorage.setItem('watchTime', JSON.stringify(newWatchTime));
-    localStorage.setItem('results', JSON.stringify(newResults));
+    localStorage.setItem("watchTime", JSON.stringify(newWatchTime));
+    localStorage.setItem("results", JSON.stringify(newResults));
   };
 
   return (
     <div className="container">
-      <div className="input-section">
+      <div className="input-container">
         <h1>Series Time Calculator</h1>
         <div className="time">
-          Watched time: {watchTime.days} Days {watchTime.hours} Hours
+          {watchTime.days} Days {watchTime.hours} Hours
         </div>
         <form onSubmit={storeItems}>
-          <div></div>
           <input
             type="text"
             name="input"
@@ -131,18 +133,23 @@ export default function SeriesTimeCalculator() {
         </form>
       </div>
 
-      <ul>
+      <div className="tiles">
         {results.map((data, index) => (
-          <li key={index}>
-            <img src={data.image.url} />
+          <div key={index} className="card">
+            <div
+              className="fas fa-times delete"
+              onClick={() => deleteItem(index)}
+            ></div>
+            <div className="image">
+              <img src={data.image.url} />
+            </div>
+
             <div className="title">
               <h3>{data.title}</h3>
             </div>
-
-            <i className="fas fa-times" onClick={() => deleteItem(index)}></i>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
